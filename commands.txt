@@ -1,0 +1,105 @@
+# Setup
+fork
+git clone https://github.com/andreykosygin/datasci350-quiz01
+cd datasci350-quiz01
+pwd
+touch commands.txt
+
+# Task 1
+git switch -c station-upgrade
+
+# Task 2
+mkdir results
+
+# Task 3
+touch results/summary.md
+echo "Analysis of the first field season" > results/summary.md
+
+# Task 4
+git add results
+git commit -m "Add results directory"
+
+# Task 5
+mv data/sensor-readings.csv data/station-data.csv
+
+# Task 6
+cd scripts
+mkdir archive && cp *.py archive/
+
+# Task 7
+cd ~
+cd datasci350-quiz01
+rm docs/notes.md
+
+# Task 8
+git add -A
+git commit -m "Update station files"
+
+# Task 9
+touch .gitignore
+echo "temp/" > .gitignore
+echo "log?.txt" >> .gitignore
+
+# Task 10
+cat .gitignore
+
+# Task 11
+git add .gitignore && git commit -m "Add gitignore"
+
+# Task 12
+touch log{1..4}.txt
+
+# Task 13
+git status
+
+## Output
+On branch station-upgrade
+nothing to commit, working tree clean
+
+## Explanation
+The files do not appear because they are currently untracked because we have not staged them.
+
+# Task 14
+wc -l data/station-data.csv >> results/summary.md
+
+# Task 15
+git diff
+
+# Output
+diff --git a/results/summary.md b/results/summary.md
+index 09d1fa3..1f4cc3f 100644
+--- a/results/summary.md
++++ b/results/summary.md
+@@ -1 +1,2 @@
+ Analysis of the first field season
++      41 data/station-data.csv
+
+# Explanation
+The lines starting with + represent the new lines of code that you added since the last commit. 
+
+# Task 16
+git add -A
+git commit -m "Update analyss"
+
+# Task 17
+git commit --amend -m "Update analysis"
+
+# Task 18
+git switch main
+git merge station-upgrade
+
+# Task 19
+git log --oneline
+
+# Output
+f893c96 (HEAD -> main, station-upgrade) Update analysis
+bbcae7f Add gitignore
+b912a6b Update station files
+12b8ee1 Add results directory
+a22b29e (origin/main, origin/HEAD) docs(readme): note committing commands.txt before task 18 and force push for bonus 2
+b645f85 feat: quiz 01 starter files
+
+# Task 20
+git add commands.txt
+git commit -m "Add command log"
+git push
